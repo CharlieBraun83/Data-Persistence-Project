@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class MainManager : MonoBehaviour
-{
+{   
+    [SerializeField] private MainUIHandler uiHandler;
     public Brick BrickPrefab;
     public int LineCount = 6;
     public Rigidbody Ball;
@@ -18,10 +20,14 @@ public class MainManager : MonoBehaviour
     
     private bool m_GameOver = false;
 
+    private DataManager dm;
+
     
     // Start is called before the first frame update
     void Start()
     {
+        dm = GameObject.FindObjectOfType<DataManager>();
+        uiHandler.RefreshUI();
         const float step = 0.6f;
         int perLine = Mathf.FloorToInt(4.0f / step);
         
@@ -70,6 +76,9 @@ public class MainManager : MonoBehaviour
 
     public void GameOver()
     {
+        dm.CheckScore(dm.currentPlayer.GetName(), m_Points);
+        dm.SaveList();
+        //uiHandler.RefreshUI();
         m_GameOver = true;
         GameOverText.SetActive(true);
     }

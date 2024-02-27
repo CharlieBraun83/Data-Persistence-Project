@@ -242,7 +242,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3dd0958ddc02b7498fc5e0b4f3b6d16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dm: {fileID: 823299789}
+  nameInput: {fileID: 1767412087}
+  playerNameDisplay: {fileID: 1735559648}
 --- !u!1 &198309068
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,8 +496,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e98eeae38447e64d89500ff9e1897ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameInput: {fileID: 1767412087}
-  playerNameDisplay: {fileID: 1735559648}
+  highestScore: 0
+  currentPlayer:
+    playerName: 
+    score: 0
+  highscores: []
 --- !u!1 &887849682
 GameObject:
   m_ObjectHideFlags: 0
@@ -1241,8 +1245,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 823299789}
-        m_TargetAssemblyTypeName: DataManager, Assembly-CSharp
+      - m_Target: {fileID: 178696073}
+        m_TargetAssemblyTypeName: MenuUIHandler, Assembly-CSharp
         m_MethodName: FieldInput
         m_Mode: 1
         m_Arguments:
